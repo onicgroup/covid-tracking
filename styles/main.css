@@ -1,0 +1,22 @@
+body {
+	font-family: 'Playfair Display', serif;
+	color: white;
+}
+
+html,body {
+	margin: 0px;
+	padding: 0px;
+	overflow-x: hidden; 
+    overscroll-behavior: none;
+    height: 100vh;
+}
+
+.card-layout {
+	height: 57vh;
+}
+
+@media (max-width: 768px) {
+	.card-layout {
+		height: 45vh;
+	}
+}
