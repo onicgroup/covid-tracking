@@ -15,8 +15,15 @@ html,body {
 	height: 57vh;
 }
 
+.last-updated {
+
+}
+
 @media (max-width: 768px) {
 	.card-layout {
-		height: 45vh;
+		height: 40vh;
+	}
+	.last-updated {
+		font-size: 10px;
 	}
 }

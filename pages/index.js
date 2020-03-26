@@ -76,7 +76,7 @@ const Home = ({ query }) => {
 						placeholder="Search" 
 						onChange={handleSearchField}
 					/>
-					<h4 className="mt-3">Last Updated: {lastUpdated} EST</h4>
+					<h4 className="mt-3 last-updated">Last Updated: {lastUpdated} EST</h4>
 				</Col>
 			</Row>
 			<Container className="mt-3 card-layout" style={{overflowY: 'scroll'}}>

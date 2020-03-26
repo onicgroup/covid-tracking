@@ -10,5 +10,8 @@ export const BackgroundDiv = styled('div')`
 	color: white;
 	text-align: center;
 	padding-top: 13.5vh;
+	@media (max-width: 768px) {
+		padding-top: 16.5vh;
+	}
 	overflow-y: scroll;
 `;
