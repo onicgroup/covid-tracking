@@ -8,7 +8,7 @@ import logo from '../../public/favicon.ico';
 
 const Header = () => {	
 	return (
-		<Navbar variant="dark" className="fixed-top" collapseOnSelect expand="lg">
+		<Navbar variant="dark" collapseOnSelect expand="lg">
 			<Link href="/">
 				<Navbar.Brand className="ml-1">
 					<Logo src={logo} alt="logo"/>

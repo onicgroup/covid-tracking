@@ -5,8 +5,8 @@ import Header from '../header/header.component';
 
 const PageContainer = ({ children }) => (
 	<div>
-		<Header/>
 		<BackgroundImage>
+			<Header/>
 			{children}
 		</BackgroundImage>
 	</div>
