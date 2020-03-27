@@ -33,7 +33,7 @@ class MyApp extends App {
 						href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap"
 						rel="stylesheet"
 					/>
-					<script>{this.ensureHTTPS()}</script>
+					<script> { process.browser && this.ensureHTTPS() } </script>
 				</Head>
 				<Component {...pageProps} />
 			</React.Fragment>
