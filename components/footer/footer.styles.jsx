@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const Text = styled('p')`
-	position: absolute;
-	bottom: 0;
-	right: 0;
+	margin-top: 15px;
 	margin-right: 10px;
 	margin-left: 10px;
 	font-size: 15px;
