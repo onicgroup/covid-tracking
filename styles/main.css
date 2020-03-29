@@ -1,3 +1,8 @@
+/** 
+	NOTE: Please only add styling for global html tags here (when necessary).
+	For custom classes, please use styled-components instead.
+**/
+
 body {
 	font-family: 'Playfair Display', serif;
 	color: white;
@@ -9,21 +14,4 @@ html,body {
 	overflow-x: hidden; 
     overscroll-behavior: none;
     height: 100vh;
-}
-
-.card-layout {
-	height: 57vh;
-}
-
-.last-updated {
-
-}
-
-@media (max-width: 768px) {
-	.card-layout {
-		height: 40vh;
-	}
-	.last-updated {
-		font-size: 10px;
-	}
 }

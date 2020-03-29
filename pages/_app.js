@@ -2,6 +2,9 @@ import React from 'react';
 import Head from 'next/head';
 import App from 'next/app';
 
+import { DataContextProvider } from '../contexts/data/data.context';
+import { UiContextProvider } from '../contexts/ui/ui.context';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/main.css';
 
@@ -25,18 +28,20 @@ class MyApp extends App {
 	render() {
 		const { Component, pageProps } = this.props;
 		return (
-			<React.Fragment>
-				<Head>
-					<title>COVID-19 Tracking</title>
-					<link rel="icon" href="/favicon.ico" />
-					<link
-						href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap"
-						rel="stylesheet"
-					/>
-					<script> { process.browser && this.ensureHTTPS() } </script>
-				</Head>
-				<Component {...pageProps} />
-			</React.Fragment>
+			<DataContextProvider>
+				<UiContextProvider>
+					<Head>
+						<title>COVID-19 Tracking</title>
+						<link rel="icon" href="/favicon.ico" />
+						<link
+							href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap"
+							rel="stylesheet"
+						/>
+						<script> { process.browser && this.ensureHTTPS() } </script>
+					</Head>
+					<Component {...pageProps} />
+				</UiContextProvider>
+			</DataContextProvider>
 		);
 	}
 }

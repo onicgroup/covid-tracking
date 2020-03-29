@@ -1,94 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Container, Row, Col, FormControl } from 'react-bootstrap';
+import React, { useState, useEffect, useContext } from 'react';
 
+import ContentContainer from '../components/content-container/content-container.component';
+import SearchBar from '../components/search-bar/search-bar.component';
 import DataModal from '../components/data-modal/data-modal.component';
 import PageContainer from '../components/page-container/page-container.component';
 import DataCardItems from '../components/data-card-items/data-card-items.component';
 import Footer from '../components/footer/footer.component';
+
+import { DataContext } from '../contexts/data/data.context';
+import { updateCountries, updateProvinces } from '../contexts/data/data.actions';
+import { UiContext } from '../contexts/ui/ui.context';
 import { getMostAffectedCountries, getProvinceCount } from '../api/covid';
 
 const Home = ({ query }) => {
-	const [searchField, setSearchField] = useState('');
-	const handleSearchField = e => setSearchField(e.target.value);
-
-	const [show, setShow] = useState(false);
-	const handleClose = () => setShow(false);
+	const { dispatch: dataDispatch } = useContext(DataContext);
+	const { dispatch: uiDispatch } = useContext(UiContext);
 	
-	const [cardData, setCardData] = useState({});
-
-	const [countries, setCountries] = useState([]);
-	const [provinces, setProvinces] = useState([]);
-
 	const [lastUpdated, setLastUpdated] = useState(null);
-
-	const getMostAffected = async () => {
-		const { countries_stat: data, statistic_taken_at: takenAt } = await getMostAffectedCountries();
-		const date = new Date(takenAt);
-		const updateDateTime = date.setHours(date.getHours() - 4);
-		const updatedDate = new Date(updateDateTime);
-		const dateList = updatedDate.toString().split(' ');
-		setLastUpdated(`${dateList[1]} ${dateList[2]}, ${dateList[4]}`)
-		setCountries(data);
+	
+	const getCountries = async () => {
+		const { countries, takenAt } = await getMostAffectedCountries();
+		setLastUpdated(takenAt);
+		dataDispatch(updateProvinces([])); // resolves an edge case
+		dataDispatch(updateCountries(countries));
 	};
-
-	const getCountryCount = async country => {
-		const res = await getProvinceCount(country);
-		let actualData;
-		if (country !== 'USA') {
-			actualData = res.filter(province => province.country === country && province.province !== country);
-		} else {
-			actualData = res;
-		}
-		setProvinces(actualData);
+	
+	const getProvincesByCountry = async country => {
+		const provinces = await getProvinceCount(country);
+		dataDispatch(updateProvinces(provinces));
 	}
-
-	const onCardClick = data => {
-		setCardData({ ...data })
-		setShow(true);
-	}
-
+	
 	useEffect(() => {
-		if (query.country) {
-			setCountries([]);
-			getCountryCount(query.country);
-		} else {
-			setProvinces([]);
-			getMostAffected();
-		}
+		query.country ? getProvincesByCountry(query.country) : getCountries();
 	}, [query])
-
+	
 	return (
 		<PageContainer>
-			<DataModal
-				{...cardData}
-				show={show}
-				handleClose={handleClose}
-				showProvinceButton={!query.country}
-			/>
-			<h1>{ query.country ? query.country : 'World Data'}</h1>
-			<Row className="justify-content-center">
-				<Col xs={10} sm={10} sm={9} md={6}>
-					<FormControl
-						style={{opacity: 0.8}} 
-						type="text" 
-						value={searchField} 
-						placeholder="Search" 
-						onChange={handleSearchField}
-					/>
-					<h4 className="mt-3 last-updated">Last Updated: {lastUpdated} EST</h4>
-				</Col>
-			</Row>
-			<Container className="mt-3 card-layout" style={{overflowY: 'scroll'}}>
-				<Row>
-					<DataCardItems 
-						searchField={searchField} 
-						countries={countries} 
-						provinces={provinces} 
-						onCardClick={onCardClick}
-					/>
-				</Row>
-			</Container>
+			<DataModal showProvinceButton={!query.country}/>
+			<ContentContainer>
+				<h1>{ query.country ? query.country : 'World Data'}</h1>
+				<SearchBar />
+				<h4 className="mt-3">Last Updated: {lastUpdated} EST</h4>
+			</ContentContainer>
+			<DataCardItems showProvinces={query.country}/>
 			<Footer/>
 		</PageContainer>
 	);
