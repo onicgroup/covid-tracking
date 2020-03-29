@@ -12,6 +12,11 @@ const UiContextReducer = (state, action) => {
 				...state,
 				searchField: action.payload
 			};
+		case UiActionTypes.UPDATE_ERROR_MESSAGE:
+			return {
+				...state,
+				errorMessage: action.payload
+			}
 		default: 
 			return state;
 	}

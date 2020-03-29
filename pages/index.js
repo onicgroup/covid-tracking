@@ -10,7 +10,7 @@ import Footer from '../components/footer/footer.component';
 import { DataContext } from '../contexts/data/data.context';
 import { updateCountries, updateProvinces } from '../contexts/data/data.actions';
 import { UiContext } from '../contexts/ui/ui.context';
-import { updateSearchField } from '../contexts/ui/ui.actions';
+import { updateSearchField, updateErrorMessage } from '../contexts/ui/ui.actions';
 import { getCountriesApi, getProvincesByCountryApi } from '../api/covid';
 
 const Home = ({ query }) => {
@@ -28,11 +28,15 @@ const Home = ({ query }) => {
 	
 	const getProvincesByCountry = async country => {
 		const provinces = await getProvincesByCountryApi(country);
+		if (!provinces.length) {
+			uiDispatch(updateErrorMessage('Sorry, this information is not yet available.'));
+		}
 		dataDispatch(updateProvinces(provinces));
 	}
 	
 	useEffect(() => {
 		uiDispatch(updateSearchField(''));
+		uiDispatch(updateErrorMessage(''));
 		query.country ? getProvincesByCountry(query.country) : getCountries();
 	}, [query])
 	

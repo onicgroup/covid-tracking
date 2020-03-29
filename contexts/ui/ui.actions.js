@@ -8,3 +8,8 @@ export const updateSearchField = search => ({
 	type: UiActionTypes.UPDATE_SEARCH_FIELD,
 	payload: search
 });
+
+export const updateErrorMessage = error => ({
+	type: UiActionTypes.UPDATE_ERROR_MESSAGE,
+	payload: error
+});

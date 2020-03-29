@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 
 import { CustomContainer } from './data-card-items.styles';
 import DataCard from '../data-card/data-card.component';
@@ -12,7 +12,7 @@ import { packageCountryData, packageProvinceData } from '../../utils';
 
 const DataCardItems = ({ showProvinces }) => {
 	const { state: { countries, provinces }, dispatch: dataDispatch } = useContext(DataContext);
-	const { state: { searchField }, dispatch: uiDispatch } = useContext(UiContext);
+	const { state: { searchField, errorMessage }, dispatch: uiDispatch } = useContext(UiContext);
 
 	const showCard = name => name.toLowerCase().includes(searchField);
 
@@ -51,7 +51,8 @@ const DataCardItems = ({ showProvinces }) => {
 								/>
 							);
 						}
-					}) : 'Please wait ...'
+					}) : errorMessage ? <h5 className="mx-auto">{errorMessage}</h5> 
+					: <Spinner className="mx-auto" animation="grow" />
 				}
 			</Row>
 		</CustomContainer>

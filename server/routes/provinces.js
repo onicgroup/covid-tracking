@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
 
-const { isNotValidProvince } = require('../utils');
+const { isNotValidProvince, constants } = require('../utils');
 
 router.get('/', async (req, res) => {
 	const { country } = req.query;
@@ -15,23 +15,27 @@ router.get('/', async (req, res) => {
 	});
 	const apiResData = await apiRes.json();
 
-	const filteredProvinces = apiResData.data.covid19Stats.reduce((acc, data) => {
-		if (isNotValidProvince(data.province)) {
+	if (apiResData.message === constants.COUNTRY_NOT_FOUND) {
+		apiResData.data.covid19Stats = [];
+	} else {
+		const filteredProvinces = apiResData.data.covid19Stats.reduce((acc, data) => {
+			if (isNotValidProvince(data.province)) {
+				return acc;
+			} else if (data.province in acc) {
+				acc[data.province].confirmed += data.confirmed;
+			} else {
+				data.city = "";
+				acc[data.province] = data;
+			}
 			return acc;
-		} else if (data.province in acc) {
-			acc[data.province].confirmed += data.confirmed;
-		} else {
-			data.city = "";
-			acc[data.province] = data;
-		}
-		return acc;
-	}, {});
+		}, {});
 
-	apiResData.data.covid19Stats = Object.values(filteredProvinces);
+		apiResData.data.covid19Stats = Object.values(filteredProvinces);
 
-	apiResData.data.covid19Stats.sort((a, b) => {
-		return b.confirmed - a.confirmed;
-	});
+		apiResData.data.covid19Stats.sort((a, b) => {
+			return b.confirmed - a.confirmed;
+		});
+	}
 
 	return res.send(apiResData);
 });

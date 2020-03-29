@@ -7,7 +7,8 @@ const UiContextProvider = props => {
 
 	const initialState = {
 		showModal: false,
-		searchField: ''
+		searchField: '',
+		errorMessage: ''
 	}
 
 	const [state, dispatch] = useReducer(UiContextReducer, initialState);
