@@ -10,6 +10,7 @@ import Footer from '../components/footer/footer.component';
 import { DataContext } from '../contexts/data/data.context';
 import { updateCountries, updateProvinces } from '../contexts/data/data.actions';
 import { UiContext } from '../contexts/ui/ui.context';
+import { updateSearchField } from '../contexts/ui/ui.actions';
 import { getCountriesApi, getProvincesByCountryApi } from '../api/covid';
 
 const Home = ({ query }) => {
@@ -31,6 +32,7 @@ const Home = ({ query }) => {
 	}
 	
 	useEffect(() => {
+		uiDispatch(updateSearchField(''));
 		query.country ? getProvincesByCountry(query.country) : getCountries();
 	}, [query])
 	
