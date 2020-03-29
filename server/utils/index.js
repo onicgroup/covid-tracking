@@ -1,9 +1,10 @@
-const notValidProvinces = [
+const invalidProvinces = [
+	'',
 	'Recovered',
 	'Diamond Princess',
-	''
+	'Grand Princess'
 ];
 
-const isNotValidProvince = province => notValidProvinces.includes(province);
+const isNotValidProvince = province => invalidProvinces.includes(province);
 
 module.exports = { isNotValidProvince };
