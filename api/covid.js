@@ -15,12 +15,5 @@ export const getProvincesByCountryApi = async country => {
 	const res = await fetch(`${process.env.BASE_URL}/api/provinces?country=${country}`);
 	const resJson = await res.json();
 	const provinces = resJson.data.covid19Stats;
-	// we should move this business logic into the server .. it slows down the frontend
-	let filteredProvinces;
-	if (country !== 'USA') {
-		filteredProvinces = provinces.filter(province => province.country === country && province.province !== country);
-	} else {
-		filteredProvinces = provinces;
-	}
-	return filteredProvinces;
+	return provinces;
 };
