@@ -12,4 +12,5 @@ export const BackgroundImage = styled('div')`
 	color: white;
 	text-align: center;
 	overflow-y: scroll;
+	overflow-x: hidden;
 `;
