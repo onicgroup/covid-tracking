@@ -10,7 +10,7 @@ import Footer from '../components/footer/footer.component';
 import { DataContext } from '../contexts/data/data.context';
 import { updateCountries, updateProvinces } from '../contexts/data/data.actions';
 import { UiContext } from '../contexts/ui/ui.context';
-import { getMostAffectedCountries, getProvinceCount } from '../api/covid';
+import { getCountriesApi, getProvincesByCountryApi } from '../api/covid';
 
 const Home = ({ query }) => {
 	const { dispatch: dataDispatch } = useContext(DataContext);
@@ -19,14 +19,14 @@ const Home = ({ query }) => {
 	const [lastUpdated, setLastUpdated] = useState(null);
 	
 	const getCountries = async () => {
-		const { countries, takenAt } = await getMostAffectedCountries();
+		const { countries, takenAt } = await getCountriesApi();
 		setLastUpdated(takenAt);
 		dataDispatch(updateProvinces([])); // resolves an edge case
 		dataDispatch(updateCountries(countries));
 	};
 	
 	const getProvincesByCountry = async country => {
-		const provinces = await getProvinceCount(country);
+		const provinces = await getProvincesByCountryApi(country);
 		dataDispatch(updateProvinces(provinces));
 	}
 	
