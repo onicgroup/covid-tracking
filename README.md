@@ -56,9 +56,38 @@ Here is a list of the major frameworks used to build this project.
 
 ### Prerequisites
 * [node](https://nodejs.org/en/)
+* [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### Installation
-1. TODO
+1. Clone the repo
+```sh
+git clone https://github.com/onicgroup/covid-tracking
+```
+2. You will need 2 X-RapidAPI-Key's, get the first one from [here](https://rapidapi.com/astsiatsko/api/coronavirus-monitor) and the second one from [here](https://rapidapi.com/KishCom/api/covid-19-coronavirus-statistics). Copy paste these somewhere safe for now.
+3. Create a .env file
+```sh
+touch .env
+```
+4. Add the following key value pairs:
+```dotfile
+COUNTRIES_API_KEY='YOUR FIRST X-RapidAPI-Key'
+PROVINCES_API_KEY='YOUR SECOND X-RapidAPI-Key'
+```
+5. Install NPM packages
+```sh
+npm install
+```
+
+### Running the project
+1. Development server
+```sh
+npm run dev
+```
+2. Production build
+```sh 
+npm run-script build
+npm start -p 5000
+```
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -85,6 +114,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 Arashdeep Panesar - as2panes@uwaterloo.ca
 
 Project Link: [https://github.com/onicgroup/covid-tracking][product-url]
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+* [Coronavirus monitor](https://rapidapi.com/astsiatsko/api/coronavirus-monitor)
+* [COVID-19 Coronavirus Statistics](https://rapidapi.com/KishCom/api/covid-19-coronavirus-statistics)
 
 <!-- CONSTANTS -->
 
