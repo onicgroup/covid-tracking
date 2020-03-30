@@ -1,30 +1,106 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+
+<p align="center">
+  <a href="https://github.com/onicgroup/covid-tracking">
+    <img src="public/favicon.ico" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Covid-19 Tracking</h3>
+
+  <p align="center">
+    Track the number of coronavirus cases around the world.
+    <br />
+    <a href="https://www.covidtracking.org">View Website</a>
+    ·
+    <a href="https://github.com/onicgroup/covid-tracking/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/onicgroup/covid-tracking/issues">Request Feature</a>
+  </p>
+</p>
+
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+<!--* [Usage](#usage)-->
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+[![Product Name Screen Shot][product-screenshot]](https://www.covidtracking.org)
+
+### Built With
+Here is a list of the major frameworks used to build this project.
+* [Next](https://nextjs.org/)
+* [React](https://reactjs.org/)
+* [React Bootstrap](https://react-bootstrap.github.io/)
+* [Styled Components](https://styled-components.com/)
+* [Express](https://expressjs.com/)
+
+<!-- GETTING STARTED -->
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+* [node](https://nodejs.org/en/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Installation
+1. TODO
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<!-- ROADMAP -->
+## Roadmap
+See the [open issues](https:/github.com/onicgroup/covid-tracking/issues) for a list of proposed features (and known issues).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<!-- CONTRIBUTING -->
+## Contributing
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-## Learn More
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-To learn more about Next.js, take a look at the following resources:
+<!-- LICENSE -->
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Distributed under the MIT License. See `LICENSE` for more information.
 
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
+<!-- CONTACT -->
+## Contact
 
-## Deploy on ZEIT Now
+Arashdeep Panesar - as2panes@uwaterloo.ca
 
-The easiest way to deploy your Next.js app is to use the [ZEIT Now Platform](https://zeit.co/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Project Link: [https://github.com/onicgroup/covid-tracking](https:/github.com/onicgroup/covid-tracking)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!-- CONSTANTS -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/onicgroup/covid-tracking.svg?style=flat-square
+[contributors-url]: https://github.com/onicgroup/covid-tracking/graphs/contributors
+
+[forks-shield]: https://img.shields.io/github/forks/onicgroup/covid-tracking.svg?style=flat-square
+[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+
+[stars-shield]: https://img.shields.io/github/stars/onicgroup/covid-tracking.svg?style=flat-square
+[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+
+[issues-shield]: https://img.shields.io/github/issues/onicgroup/covid-tracking.svg?style=flat-squareÂ
+[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+
+[license-shield]: https://img.shields.io/github/license/onicgroup/covid-tracking.svg?style=flat-square
+[license-url]: https://github.com/onicgroup/covid-tracking/blob/master/LICENSE.txt
+
+[product-screenshot]: assets/images/screenshot.png
