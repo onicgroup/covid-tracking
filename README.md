@@ -92,13 +92,13 @@ Project Link: [https://github.com/onicgroup/covid-tracking](https:/github.com/on
 [contributors-url]: https://github.com/onicgroup/covid-tracking/graphs/contributors
 
 [forks-shield]: https://img.shields.io/github/forks/onicgroup/covid-tracking.svg?style=flat-square
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[forks-url]: https://github.com/onicgroup/covid-tracking/network/members
 
 [stars-shield]: https://img.shields.io/github/stars/onicgroup/covid-tracking.svg?style=flat-square
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[stars-url]: https://github.com/onicgroup/covid-tracking/stargazers
 
 [issues-shield]: https://img.shields.io/github/issues/onicgroup/covid-tracking.svg?style=flat-squareÂ
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[issues-url]: https://github.com/onicgroup/covid-tracking/issues
 
 [license-shield]: https://img.shields.io/github/license/onicgroup/covid-tracking.svg?style=flat-square
 [license-url]: https://github.com/onicgroup/covid-tracking/blob/master/LICENSE.txt
