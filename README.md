@@ -62,7 +62,7 @@ Here is a list of the major frameworks used to build this project.
 
 <!-- ROADMAP -->
 ## Roadmap
-See the [open issues](https:/github.com/onicgroup/covid-tracking/issues) for a list of proposed features (and known issues).
+See the [open issues][issues-url] for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -84,7 +84,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Arashdeep Panesar - as2panes@uwaterloo.ca
 
-Project Link: [https://github.com/onicgroup/covid-tracking](https:/github.com/onicgroup/covid-tracking)
+Project Link: [https://github.com/onicgroup/covid-tracking][https://github.com/onicgroup/covid-tracking]
 
 <!-- CONSTANTS -->
 
@@ -104,3 +104,4 @@ Project Link: [https://github.com/onicgroup/covid-tracking](https:/github.com/on
 [license-url]: https://github.com/onicgroup/covid-tracking/blob/master/LICENSE.txt
 
 [product-screenshot]: assets/images/screenshot.png
+[product-url]: https://github.com/onicgroup/covid-tracking
