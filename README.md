@@ -84,7 +84,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Arashdeep Panesar - as2panes@uwaterloo.ca
 
-Project Link: [https://github.com/onicgroup/covid-tracking][https://github.com/onicgroup/covid-tracking]
+Project Link: [https://github.com/onicgroup/covid-tracking][product-url]
 
 <!-- CONSTANTS -->
 
