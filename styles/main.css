@@ -12,6 +12,7 @@ html,body {
 	margin: 0px;
 	padding: 0px;
 	overflow-x: hidden; 
+	overflow-y: hidden;
     overscroll-behavior: none;
     height: 100vh;
 }
