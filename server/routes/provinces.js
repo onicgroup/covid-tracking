@@ -18,11 +18,14 @@ router.get('/', async (req, res) => {
 	if (apiResData.message === constants.COUNTRY_NOT_FOUND) {
 		apiResData.data.covid19Stats = [];
 	} else {
+		// we only want to show provinces, sometimes the api returns all cities in a country
 		const filteredProvinces = apiResData.data.covid19Stats.reduce((acc, data) => {
 			if (isNotValidProvince(data.province)) {
 				return acc;
 			} else if (data.province in acc) {
 				acc[data.province].confirmed += data.confirmed;
+				acc[data.province].deaths += data.deaths;
+				acc[data.province].recovered += data.recovered;
 			} else {
 				data.city = "";
 				acc[data.province] = data;
