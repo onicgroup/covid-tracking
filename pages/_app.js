@@ -25,13 +25,21 @@ class MyApp extends App {
 		}
 	}
 
+	initializeGoogleAnalytics() {
+		if (process.env.NODE_ENV === 'production') {
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-162440212-1');
+		}
+	}
+
 	render() {
 		const { Component, pageProps } = this.props;
 		return (
 			<DataContextProvider>
 				<UiContextProvider>
 					<Head>
-						<title>COVID-19 Tracking</title>
 						<link rel="icon" href="/favicon.ico" />
 						<link
 							href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap"
@@ -48,6 +56,27 @@ class MyApp extends App {
 						<link href='/favicon-32x32.png' rel='icon' type='image/png' sizes='32x32' />
 						<link rel="apple-touch-icon" href="/icons/icon-512x512.png"></link>
 						<meta name="theme-color" content="#317EFB"/>
+
+						<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162440212-1"></script>
+						<script> { process.browser && this.initializeGoogleAnalytics() } </script>
+
+						<meta property="og:title" content="COVID-19 Tracking: Up-To-Date COVID-19 cases. Updated every minute. "/>
+						<meta property="og:type" content="website"/>
+						<meta property="og:url" content="https://www.covidtracking.org/"/>
+						<meta property="og:site_name" content="COVID-19 Tracking"/>
+						<meta property="og:description" content="See updates for the world's COVID-19 cases in one simple view. Updated every minute."/>
+						<meta property="og:image" content="https://i.imgur.com/ICqgEeG.png"/>
+
+						<title>COVID-19 Tracking: Up-To-Date COVID-19 cases. Updated every minute.</title>
+						<meta name="description" content="See updates for the world's COVID-19 cases in one simple view. Updated every minute."/>
+						<meta name="author" content="The Onic Group"/>
+						<meta property="og:title" content="COVID-19 Tracking: Up-To-Date COVID-19 cases. Updated every minute."/>
+						<meta property="og:type" content="website"/>
+						<meta property="og:url" content="https://www.covidtracking.org/"/>
+						<meta property="og:site_name" content="COVID-19 Tracking"/>
+						<meta property="og:description" content="See updates for the world's COVID-19 cases in one view."/>
+						<meta property="og:image" content="https://i.imgur.com/ICqgEeG.png"/>
+
 						<script> { process.browser && this.ensureHTTPS() } </script>
 					</Head>
 					<Component {...pageProps} />
