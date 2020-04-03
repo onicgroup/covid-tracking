@@ -5,6 +5,6 @@ export const CustomContainer = styled(Container)`
 	overflow-y: scroll;
 	height: 57vh;
 	@media (max-width: 768px) {
-		height: 40vh;
+		height: 70vh;
 	}
 `;

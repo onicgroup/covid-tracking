@@ -44,9 +44,11 @@ const Home = ({ query }) => {
 		<PageContainer>
 			<DataModal showProvinceButton={!query.country}/>
 			<ContentContainer>
-				<h1>{ query.country ? query.country : 'World Data'}</h1>
+				<h1 className="mt-1">{ query.country ? query.country : 'World Data'}</h1>
 				<SearchBar />
+				<div className="d-none d-sm-block">
 				<h4 className="mt-3">Last Updated: {lastUpdated} EST</h4>
+				</div>
 			</ContentContainer>
 			<DataCardItems showProvinces={query.country}/>
 			<Footer/>

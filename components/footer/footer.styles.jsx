@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 export const Text = styled('p')`
-	margin-top: 15px;
-	margin-right: 10px;
-	margin-left: 10px;
+	position: absolute;
+  bottom: 10px;
+  width: 100%;
 	font-size: 15px;
+	@media (max-width: 768px) {
+		font-size: 7.5px;
+	}
 `;
