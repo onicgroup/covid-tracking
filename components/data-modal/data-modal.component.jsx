@@ -6,6 +6,8 @@ import { UiContext } from '../../contexts/ui/ui.context';
 import { toggleModal } from '../../contexts/ui/ui.actions';
 import { DataContext } from '../../contexts/data/data.context';
 
+import { constants } from '../../utils';
+
 const DataModal = ({ showProvinceButton }) => {
 	const { state: { showModal }, dispatch } = useContext(UiContext);
 	const { state: { modalData: { title, cases, active, deaths, recovered } } } = useContext(DataContext);
@@ -21,7 +23,7 @@ const DataModal = ({ showProvinceButton }) => {
 				<p>Recovered: {recovered}</p>
 			</Modal.Body>
 			<Modal.Footer>
-				{ showProvinceButton &&
+				{ showProvinceButton && constants.COUNTRIES_WITH_PROVINCE_DATA.includes(title) &&
 					<Link href={`?country=${title}`}>
 						<Button variant="primary" onClick={() => dispatch(toggleModal())}>
 							View Provinces/States

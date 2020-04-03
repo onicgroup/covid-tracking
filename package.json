@@ -1,5 +1,5 @@
 {
-  "name": "caronavirus-stats-app",
+  "name": "covid-tracking",
   "version": "0.1.0",
   "private": true,
   "scripts": {

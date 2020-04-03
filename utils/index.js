@@ -19,3 +19,15 @@ export const packageProvinceData = province => {
 		recovered
 	}
 }
+
+export const constants = {
+	COUNTRIES_WITH_PROVINCE_DATA: [
+		"USA",
+		"China",
+		"Canada",
+		// "France",
+		// "Netherlands",
+		// "Australia",
+		// "Denmark"
+	]
+};
