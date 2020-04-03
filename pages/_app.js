@@ -19,19 +19,30 @@ class MyApp extends App {
 		return { pageProps };
 	}
 
-	ensureHTTPS() {
-		if (process.env.NODE_ENV === 'production' && location.protocol !== 'https:') {
+	initialize() {
+		if (process.env.NODE_ENV !== 'production') return;
+
+		// ensures user is on https
+		if (location.protocol !== 'https:') {
 		 location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
 		}
-	}
 
-	initializeGoogleAnalytics() {
-		if (process.env.NODE_ENV === 'production') {
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'UA-162440212-1');
-		}
+		// google analytics
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-162440212-1');
+
+		// hotjar tracking
+		(function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1753942,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+
 	}
 
 	render() {
@@ -77,7 +88,7 @@ class MyApp extends App {
 						<meta property="og:description" content="See updates for the world's COVID-19 cases in one view."/>
 						<meta property="og:image" content="https://i.imgur.com/ICqgEeG.png"/>
 
-						<script> { process.browser && this.ensureHTTPS() } </script>
+						<script> { process.browser && this.initialize() } </script>
 					</Head>
 					<Component {...pageProps} />
 				</UiContextProvider>
