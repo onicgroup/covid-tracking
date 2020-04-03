@@ -14,7 +14,7 @@ const DataCardItems = ({ showProvinces }) => {
 	const { state: { countries, provinces }, dispatch: dataDispatch } = useContext(DataContext);
 	const { state: { searchField, errorMessage }, dispatch: uiDispatch } = useContext(UiContext);
 
-	const showCard = name => name.toLowerCase().includes(searchField);
+	const showCard = name => name.toLowerCase().includes(searchField.toLowerCase());
 
 	const onCardClick = data => {
 		dataDispatch(updateModalData(data));
