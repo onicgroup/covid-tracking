@@ -8,6 +8,7 @@ export const BackgroundImage = styled('div')`
 	background-size: cover;
 	background-repeat: no-repeat;
 	width: 100vw;
+	height: 100vh;
 	color: white;
 	text-align: center;
 	overflow-x: hidden;
