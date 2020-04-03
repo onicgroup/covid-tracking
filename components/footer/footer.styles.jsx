@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
-export const Text = styled('p')`
-	position: absolute;
-  bottom: 10px;
-  width: 100%;
+export const Text = styled('div')`
 	font-size: 15px;
+	height: 10vh;
+	display: table-cell;
+	width: 100vw;
+  vertical-align: middle;
+  margin: 0 auto;
 	@media (max-width: 768px) {
-		font-size: 7.5px;
+		font-size: 10px;
 	}
 `;
