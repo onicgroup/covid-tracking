@@ -68,9 +68,6 @@ class MyApp extends App {
 						<link rel="apple-touch-icon" href="/icons/icon-512x512.png"></link>
 						<meta name="theme-color" content="#317EFB"/>
 
-						<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162440212-1"></script>
-						<script> { process.browser && this.initializeGoogleAnalytics() } </script>
-
 						<meta property="og:title" content="COVID-19 Tracking: Up-To-Date COVID-19 cases. Updated every minute. "/>
 						<meta property="og:type" content="website"/>
 						<meta property="og:url" content="https://www.covidtracking.org/"/>
@@ -88,6 +85,7 @@ class MyApp extends App {
 						<meta property="og:description" content="See updates for the world's COVID-19 cases in one view."/>
 						<meta property="og:image" content="https://i.imgur.com/ICqgEeG.png"/>
 
+						<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162440212-1"></script>
 						<script> { process.browser && this.initialize() } </script>
 					</Head>
 					<Component {...pageProps} />
