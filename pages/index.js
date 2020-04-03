@@ -20,18 +20,30 @@ const Home = ({ query }) => {
 	const [lastUpdated, setLastUpdated] = useState(null);
 	
 	const getCountries = async () => {
-		const { countries, takenAt } = await getCountriesApi();
-		setLastUpdated(takenAt);
-		dataDispatch(updateProvinces([])); // resolves an edge case
-		dataDispatch(updateCountries(countries));
+		try {
+			const { countries, takenAt } = await getCountriesApi();
+			setLastUpdated(takenAt);
+			dataDispatch(updateProvinces([])); // resolves an edge case
+			dataDispatch(updateCountries(countries));
+		} catch(e) {
+			console.log(e);
+			uiDispatch(updateErrorMessage(e.message));
+			dataDispatch(updateProvinces([]));
+			dataDispatch(updateCountries([]));
+		}
 	};
 	
 	const getProvincesByCountry = async country => {
-		const provinces = await getProvincesByCountryApi(country);
-		if (!provinces.length) {
-			uiDispatch(updateErrorMessage('Sorry, this information is not yet available.'));
+		try {
+			const provinces = await getProvincesByCountryApi(country);
+			if (!provinces.length) {
+				uiDispatch(updateErrorMessage('Sorry, this information is not yet available.'));
+			}
+			dataDispatch(updateProvinces(provinces));
+		} catch (e) {
+			uiDispatch(updateErrorMessage(e.message));
+			dataDispatch(updateProvinces([]));
 		}
-		dataDispatch(updateProvinces(provinces));
 	}
 	
 	useEffect(() => {
