@@ -18,7 +18,5 @@ export const getProvincesByCountryApi = async country => {
 	const resJson = await res.json();
 	const { error, data } = resJson;
 	if (error) throw new Error(data);
-
-	const provinces = resJson.data.covid19Stats;
-	return provinces;
+	return data.data.covid19Stats;;
 };
