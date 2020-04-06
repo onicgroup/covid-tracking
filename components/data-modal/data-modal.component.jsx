@@ -21,7 +21,7 @@ const DataModal = ({ showProvinceButton }) => {
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
-				<div style={{height: '50vh'}}>
+				<div style={{height: '40vh'}}>
 					<PieChart {...pieData}/>
 				</div>
 				<p><strong>Total Cases:</strong> {cases}</p>
