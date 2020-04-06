@@ -24,10 +24,10 @@ const DataModal = ({ showProvinceButton }) => {
 				<div style={{height: '40vh'}}>
 					<PieChart {...pieData}/>
 				</div>
-				<p><strong>Total Cases:</strong> {cases}</p>
-				<p><strong>Active Cases:</strong> {active}</p>
-				<p><strong>Deaths:</strong> {deaths}</p>
-				<p><strong>Recovered:</strong> {recovered}</p>
+				<p className="mb-1"><strong>Total Cases:</strong> {cases}</p>
+				<p className="mb-1"><strong>Active Cases:</strong> {active}</p>
+				<p className="mb-1"><strong>Deaths:</strong> {deaths}</p>
+				<p className="mb-1"><strong>Recovered:</strong> {recovered}</p>
 			</Modal.Body>
 			<Modal.Footer>
 				{ showProvinceButton && constants.COUNTRIES_WITH_PROVINCE_DATA.includes(title) &&
