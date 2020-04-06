@@ -44,13 +44,13 @@ const PieChart = ({ cases, active, deaths, recovered }) => {
 				]
 			}
 			margin={{ top: 80, right: 125, bottom: 80, left: 125 }}
-			innerRadius={0.5}
+			innerRadius={0}
 			padAngle={0.7}
 			cornerRadius={3}
 			colors={{ scheme: 'blues' }}
 			borderWidth={1}
 			borderColor={{ from: 'color', modifiers: [ [ 'darker', 1 ] ] }}
-			radialLabelsSkipAngle={10}
+			radialLabelsSkipAngle={20}
 			radialLabelsTextXOffset={6}
 			radialLabelsTextColor="#333333"
 			radialLabelsLinkOffset={0}
@@ -58,7 +58,7 @@ const PieChart = ({ cases, active, deaths, recovered }) => {
 			radialLabelsLinkHorizontalLength={24}
 			radialLabelsLinkStrokeWidth={1}
 			radialLabelsLinkColor={{ from: 'color' }}
-			slicesLabelsSkipAngle={10}
+			slicesLabelsSkipAngle={20}
 			slicesLabelsTextColor="#333333"
 			animate={true}
 			motionStiffness={90}
