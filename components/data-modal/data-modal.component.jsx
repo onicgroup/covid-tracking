@@ -12,13 +12,22 @@ import { constants } from '../../utils';
 const DataModal = ({ showProvinceButton }) => {
 	const { state: { showModal }, dispatch } = useContext(UiContext);
 	const { state: { modalData: { title, ...pieData } } } = useContext(DataContext);
+	const { cases, active, deaths, recovered } = pieData;
 	return (
 		<Modal centered show={showModal} onHide={() => dispatch(toggleModal())} style={{color: 'black'}}>
 			<Modal.Header closeButton>
-				<Modal.Title>{title}: {pieData.cases} total cases</Modal.Title>
+				<Modal.Title>
+					<strong>{title}</strong>
+				</Modal.Title>
 			</Modal.Header>
-			<Modal.Body style={{height: '50vh'}}>
-				<PieChart {...pieData}/>
+			<Modal.Body>
+				<div style={{height: '50vh'}}>
+					<PieChart {...pieData}/>
+				</div>
+				<p><strong>Total Cases:</strong> {cases}</p>
+				<p><strong>Active Cases:</strong> {active}</p>
+				<p><strong>Deaths:</strong> {deaths}</p>
+				<p><strong>Recovered:</strong> {recovered}</p>
 			</Modal.Body>
 			<Modal.Footer>
 				{ showProvinceButton && constants.COUNTRIES_WITH_PROVINCE_DATA.includes(title) &&
