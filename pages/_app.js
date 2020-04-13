@@ -85,6 +85,8 @@ class MyApp extends App {
 						<meta property="og:description" content="See updates for the world's COVID-19 cases in one view."/>
 						<meta property="og:image" content="https://i.imgur.com/ICqgEeG.png"/>
 
+						<script data-ad-client="ca-pub-9403523287019037" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 						<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162440212-1"></script>
 						<script> { process.browser && this.initialize() } </script>
 					</Head>
